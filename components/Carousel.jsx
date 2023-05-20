@@ -21,7 +21,7 @@ const Carousel = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
     };
   return (
-    <div className="relative border-2 border-solid border-gray-100  pt-[120px] ">
+    <div className="relative border-2 border-solid border-gray-100  pt-[80px] ">
       <div className="flex items-center justify-center">
         <button
           className="absolute text-white border-2 border-solid border-white left-0 top-1/2 transform -translate-y-1/2 focus:outline-none"

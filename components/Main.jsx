@@ -7,7 +7,7 @@ const Main = () => {
     <>
     {/* Carousel */}
     <Carousel />
-    <div className="h-screen mx-10">
+    <div className="w-full h-screen text-center">
       <div className='mb-3'>
         <h1 className='text-2xl'>Site Notice</h1>
         <div className='border-box p-3'>

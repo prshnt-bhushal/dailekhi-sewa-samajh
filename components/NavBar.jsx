@@ -14,11 +14,11 @@ const navbar = () => {
   return (
     <div className= 'fixed w-full h-20 shadow-xl z-[100] bg-slate-300'>
       <div className='flex justify-between items-center w-full h-full px-2 xl:px-10'>
-       <div className=' flex items-center'>
+       <div className=' flex items-center overflow-hidden'>
         <Link href='/'>
-          <Image src='/../public/Images/waveFlag.gif' alt='Main Logo' width='65' height='60'/>
+          <Image src='/../public/Images/dailekhi-logo.png' alt='Main Logo' width='150' height='50'/>
         </Link>
-        <div className='mx-3 justify-center cursor-default'>
+        <div className='mr-3 justify-center cursor-default'>
           <h3>दैलेखी सेवा समाज</h3>
           <span>काठमाडौँ, नेपाल</span>
         </div>
@@ -31,6 +31,9 @@ const navbar = () => {
           </Link>
           <Link  href='/about'>
               <li className='ml-10 text-sm uppercase hover:text-[#607e91]'>About us</li>
+          </Link>
+          <Link  href='/blog'>
+              <li className='ml-10 text-sm uppercase hover:text-[#607e91]'>Blog</li>
           </Link>
           <Link href='/gallery'>
               <li className='ml-10 text-sm uppercase hover:text-[#607e91]'>Gallery</li>
@@ -75,6 +78,9 @@ const navbar = () => {
                         </Link>
                         <Link scroll={false} onClick={()=> setNav(false)} href='/about'>
                             <li className='py-4 text-sm hover:text-[#607e91]'>About Us</li>
+                        </Link>
+                        <Link scroll={false} onClick={()=> setNav(false)} href='/blog'>
+                            <li className='py-4 text-sm hover:text-[#607e91]'>Blog</li>
                         </Link>
                         <Link scroll={false} onClick={()=> setNav(false)} href='/gallery'>
                             <li className='py-4 text-sm hover:text-[#607e91]'>Gallery</li>

@@ -34,6 +34,10 @@ const Main = () => {
             <div>class1</div>
           </div>
         </div>
+        {/* embedded map */}
+        <div className='w-full h-36'>
+          {/* <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d353.51049338326686!2d85.32864997175557!3d27.7051307996466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1684554198044!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
+        </div>
       </div>
     </div>
     </>

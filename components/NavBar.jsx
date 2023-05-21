@@ -26,7 +26,7 @@ const navbar = () => {
        </div>
        <div className='flex justify-center items-center'>
         <ul className='hidden md:flex'>
-          <Link href='/home'>
+          <Link href='/'>
              <li className='ml-10 text-sm uppercase hover:text-[#607e91]'>Home</li>
           </Link>
           <Link  href='/about'>

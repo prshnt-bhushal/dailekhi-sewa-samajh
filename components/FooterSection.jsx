@@ -4,7 +4,7 @@ import {FaFacebookF, FaTwitter} from 'react-icons/fa'
 
 const FooterSection = () => {
   return (
-    <div className='flex w-full h-10 justify-center p-2 items-center bg-slate-300'>
+    <footer className='flex w-full h-10 justify-center p-2 items-center bg-slate-300'>
     {/* copyright section */}
     <div>
       <p> © 2022 Copyrights, दैलेखी सेवा समाज |</p>
@@ -22,7 +22,7 @@ const FooterSection = () => {
         </div>
       </Link>
     </div>
-    </div>
+    </footer>
   )
 }
 

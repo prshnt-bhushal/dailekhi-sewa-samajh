@@ -12,6 +12,8 @@
 /.next/
 /out/
 
+/try1pw.txt
+
 # production
 /build
 

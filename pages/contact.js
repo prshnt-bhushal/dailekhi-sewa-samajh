@@ -4,24 +4,23 @@ import FeedBackBox from '@/components/FeedBackBox'
 
 const  contact = () => {
   return (
-    <div className='pt-[80px] mx-10'>
+    <div className='pt-[80px] mx-10 h-min mb-14 '>
       <h1 className='uppercase text-xl'>contact</h1>
       {/* form and message */}
       <div className='flex md:flex-row sm:flex-row justify-between items-center flex-col'>
-        <div className='w-full h-full rounded-2xl relative border border-gray-950 text-xl basis-[69%] p-5'>
-          <h2>FeedBack</h2>
+        <div className='w-full h-full basis-[70%] border-r border-gray-950 text-2xl uppercase m-2 p-4'>Feel Free to let us Know</div>
+        <div className='text-xl basis-[30%] p-5 items-center'>
+          <h2 className='pb-2 uppercase w-max'>Your Queries</h2>
           <FeedBackBox/>
-        </div>
-        <div className='w-full h-full rounded-2xl relative border border-gray-950 text-xl basis-[25%] p-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim culpa sit eaque similique ducimus dolorem consequatur ipsum nihil nesciunt repudiandae quidem fugiat fuga necessitatibus, quasi deserunt quibusdam? Ipsa veniam quae excepturi vero? Voluptate, doloremque unde? Nihil voluptatem unde nobis animi illo iste mollitia in eum? Iure aliquam blanditiis a? Error?
         </div>
       </div>
     {/* embedded map */}
-    <div className='flex h-[400px] justify-between items-center'>
-      <div className='w-full h-full p-4'>
+    <div className='flex md:flex-row sm:flex-row h-[400px] justify-between items-center flex-col'>
+      <div className='w-full basis-[70%] h-full p-4'>
         <MapComponent/>
       </div>
-      <div className='m-2'>
-        <h1>You can find us near Pipalbot, Dillibazzar</h1>
+      <div className='m-2 text-2xl uppercase basis-[30%]'>
+        You can find us near Pipalbot, Dillibazzar
       </div>
     </div>
     </div>

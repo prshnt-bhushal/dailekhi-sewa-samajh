@@ -1,13 +1,28 @@
 import React, { useState } from 'react'
+import axios from 'axios'
 import Image from 'next/image'
 import Link from 'next/link'
 import {AiOutlineMenu,AiOutlineCloseCircle} from 'react-icons/ai'
+import { useRouter } from 'next/router'
 
-const navbar = () => {
-
-  const [nav, setNav]=useState(false);
-
-  const handelNav=()=>{
+const navbar = ({isLoggedIn}) => {
+    const router =useRouter();
+    const [nav, setNav]=useState(false);
+    const handleLogout =() =>{
+        //perform logout action
+    axios
+    .get("http://localhost:5000/api/logout", { withCredentials: true })
+    .then((response) => {
+      console.log(response.data.message);
+      // Redirecting to login page
+      router.push("/login");
+    })
+    .catch((error) => {
+      console.log(error);
+      // Handle error
+    });
+    }
+    const handelNav=()=>{
         setNav(!nav);
     };
 
@@ -44,6 +59,15 @@ const navbar = () => {
           <Link  href='/contact'>
               <li className='ml-10 text-sm uppercase hover:text-[#607e91]'>Contact</li>
           </Link>
+
+            {isLoggedIn && (
+                <li className='ml-10 text-sm uppercase hover:text-[#607e91]' onClick={()=>{
+                    // Prevent user from navigating back to the page after logout
+                    window.history.replaceState(null, "", "/logout");
+                    handleLogout();
+                    isLoggedIn= false;
+                }}>Logout</li>
+            )}
         </ul>
         <div onClick={handelNav} className='md:hidden cursor-pointer'>
             <AiOutlineMenu size={25} />
@@ -91,6 +115,11 @@ const navbar = () => {
                         <Link scroll={false} onClick={()=> setNav(false)} href='/contact'>
                             <li className='py-4 text-sm hover:text-[#607e91]'>Contact</li>
                         </Link>
+
+                        {isLoggedIn && (
+                        <li className='ml-10 text-sm uppercase hover:text-[#607e91]' onClick={handleLogout}>Logout</li>
+                        )}
+
                     </ul>
                 </div>
             </div>

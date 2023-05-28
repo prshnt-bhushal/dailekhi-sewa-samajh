@@ -1,19 +1,43 @@
-import React from 'react'
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import dailekhMap from "../public/Images/dailekhMap.png";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const signup = () => {
+  const router = useRouter();
+  const [inputs, setInputs] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const handleChange = (e) => {
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      console.log({ name, email, password});
-    };
+  const sendRequest = async () => {
+    const res = await axios
+      .post("http://localhost:5000/api/signup", {
+        name: inputs.name,
+        email: inputs.email,
+        password: inputs.password,
+      })
+      .catch((err) => console.log(err));
+    // const data = await res.data;
+    // return data;
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputs);
+    //send http request
+    sendRequest().then(() => router.push("/login"));
+  };
 
   return (
     <div className="md:flex h-full p-10 justify-center items-center pt-[90px]">
@@ -30,26 +54,29 @@ const signup = () => {
       >
         <input
           type="text"
-          value={name}
+          name="name"
+          value={inputs.name}
           required
           className="m-2 p-2 rounded-lg w-64 cursor-pointer bg-slate-100 hover:bg-white"
-          onChange={(e) => setName(e.target.value)}
+          onChange={handleChange}
           placeholder="Username"
         />
         <input
           type="email"
-          value={email}
+          name="email"
+          value={inputs.email}
           required
           className="m-2 p-2 rounded-lg w-64 cursor-pointer bg-slate-100 hover:bg-white"
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={handleChange}
           placeholder="Email"
         />
         <input
           type="password"
-          value={password}
+          name="password"
+          value={inputs.password}
           required
           className="m-2 p-2 rounded-lg w-64 cursor-pointer bg-slate-100 hover:bg-white"
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={handleChange}
           placeholder="Password"
         />
         <button
@@ -69,6 +96,6 @@ const signup = () => {
       </form>
     </div>
   );
-}
+};
 
-export default signup
+export default signup;

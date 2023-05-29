@@ -24,6 +24,9 @@
     li {
         @apply cursor-pointer
     }
+    p{
+        @apply text-lg
+    }
     h2,h1,h3,h4,h5,h6 
     {
         @apply font-bold

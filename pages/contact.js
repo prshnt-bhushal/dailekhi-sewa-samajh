@@ -2,33 +2,28 @@ import React from 'react'
 import MapComponent from '@/components/MapComponent'
 import FeedBackBox from '@/components/FeedBackBox'
 
-const  contact = () => {
+const contact = () => {
   return (
-    <div className="pt-[80px] w-screen h-full">
+    <div className='pt-[80px] mx-10 h-min mb-14 '>
       {/* form and message */}
-      <div className="flex flex-col w-full h-full p-10 justify-center items-center bg-[#b4b7bc] md:flex-row">
-        {/* Introduction section*/}
-        <div className="text-justify px-3 m-2 basis-[70%]">
-          <p className="w-full text-2xl uppercase">Feel Free to let us Know</p>
-        </div>
-        <div className="p-3 m-2 basis-[30%] ">
+      <div className='flex md:flex-row sm:flex-row justify-between items-center flex-col'>
+        <div className='w-24 h-full basis-[50%] border-r border-gray-950 text-2xl uppercase m-2 p-4'>Feel Free to let us Know</div>
+        <div className='text-xl basis-[30%] p-5 items-center'>
+          <h2 className='pb-2 uppercase w-max'>Your Queries</h2>
           <FeedBackBox />
         </div>
       </div>
       {/* embedded map */}
-      <div className="flex flex-col w-full h-full p-10 justify-center items-center bg-white md:flex-row">
-        {/* Introduction section*/}
-        <div className="p-3 m-2 basis-[70%] ">
+      <div className='flex md:flex-row sm:flex-row h-[400px] justify-between items-center flex-col'>
+        <div className='w-full basis-[70%] h-full p-4'>
           <MapComponent />
         </div>
-        <div className="text-justify px-3 m-2 basis-[30%]">
-          <p className="w-full text-2xl uppercase">
-            You can find us near Pipalbot, Dillibazzar
-          </p>
+        <div className='m-2 text-2xl uppercase basis-[30%]'>
+          You can find us near Pipalbot, Dillibazzar
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default  contact
+export default contact

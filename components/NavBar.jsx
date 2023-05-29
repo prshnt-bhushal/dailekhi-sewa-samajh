@@ -6,8 +6,8 @@ import {AiOutlineMenu,AiOutlineCloseCircle} from 'react-icons/ai'
 import { useRouter } from 'next/router'
 
 const navbar = ({isLoggedIn}) => {
-    const router =useRouter();
-    const [nav, setNav]=useState(false);
+    const router = useRouter();
+    const [nav, setNav]= useState(false);
     const handleLogout =() =>{
         //perform logout action
     axios
@@ -42,22 +42,22 @@ const navbar = ({isLoggedIn}) => {
        <div className='flex justify-center items-center'>
         <ul className='hidden md:flex'>
           <Link href='/'>
-             <li className='ml-10 text-sm uppercase hover:text-[#607e91]'>Home</li>
+             <li className={`ml-10 text-sm uppercase hover:text-[#607e91] ${router.pathname === '/' ? 'font-bold underline' : ''}`}>Home</li>
           </Link>
           <Link  href='/about'>
-              <li className='ml-10 text-sm uppercase hover:text-[#607e91]'>About us</li>
+              <li className={`ml-10 text-sm uppercase hover:text-[#607e91] ${router.pathname === '/about' ? 'font-bold underline' : ''}`}>About us</li>
           </Link>
           <Link  href='/blog'>
-              <li className='ml-10 text-sm uppercase hover:text-[#607e91]'>Blog</li>
+              <li className={`ml-10 text-sm uppercase hover:text-[#607e91] ${router.pathname === '/blog' ? 'font-bold underline' : ''}`}>Blog</li>
           </Link>
           <Link href='/gallery'>
-              <li className='ml-10 text-sm uppercase hover:text-[#607e91]'>Gallery</li>
+              <li className={`ml-10 text-sm uppercase hover:text-[#607e91] ${router.pathname === '/gallery' ? 'font-bold underline' : ''}`}>Gallery</li>
           </Link>
           <Link href='/projects'>
-              <li className='ml-10 text-sm uppercase hover:text-[#607e91]'>Projects</li>
+              <li className={`ml-10 text-sm uppercase hover:text-[#607e91] ${router.pathname === '/projects' ? 'font-bold underline' : ''}`}>Projects</li>
           </Link>
           <Link  href='/contact'>
-              <li className='ml-10 text-sm uppercase hover:text-[#607e91]'>Contact</li>
+              <li className={`ml-10 text-sm uppercase hover:text-[#607e91] ${router.pathname === '/contact' ? 'font-bold underline' : ''}`}>Contact</li>
           </Link>
 
             {isLoggedIn && (
@@ -98,22 +98,22 @@ const navbar = ({isLoggedIn}) => {
                 <div className='py-4 flex flex-col'>
                     <ul className='uppercase '>
                         <Link scroll={false} href='/#home' onClick={()=> setNav(false)} >
-                            <li className='py-4 text-sm  hover:text-[#607e91]'>Home</li>
+                            <li className={`py-4 text-sm  hover:text-[#607e91] ${router.pathname === '/' ? 'font-bold underline' : ''}`}>Home</li>
                         </Link>
                         <Link scroll={false} onClick={()=> setNav(false)} href='/about'>
-                            <li className='py-4 text-sm hover:text-[#607e91]'>About Us</li>
+                            <li className={`py-4 text-sm  hover:text-[#607e91] ${router.pathname === '/about' ? 'font-bold underline' : ''}`}>About Us</li>
                         </Link>
                         <Link scroll={false} onClick={()=> setNav(false)} href='/blog'>
-                            <li className='py-4 text-sm hover:text-[#607e91]'>Blog</li>
+                            <li className={`py-4 text-sm  hover:text-[#607e91] ${router.pathname === '/blog' ? 'font-bold underline' : ''}`}>Blog</li>
                         </Link>
                         <Link scroll={false} onClick={()=> setNav(false)} href='/gallery'>
-                            <li className='py-4 text-sm hover:text-[#607e91]'>Gallery</li>
+                            <li className={`py-4 text-sm  hover:text-[#607e91] ${router.pathname === '/gallery' ? 'font-bold underline' : ''}`}>Gallery</li>
                         </Link>
                         <Link scroll={false} onClick={()=> setNav(false)} href='/projects'>
-                            <li className='py-4 text-sm hover:text-[#607e91]'>Projects</li>
+                            <li className={`py-4 text-sm  hover:text-[#607e91] ${router.pathname === '/projects' ? 'font-bold underline' : ''}`}>Projects</li>
                         </Link>
                         <Link scroll={false} onClick={()=> setNav(false)} href='/contact'>
-                            <li className='py-4 text-sm hover:text-[#607e91]'>Contact</li>
+                            <li className={`py-4 text-sm  hover:text-[#607e91] ${router.pathname === '/contact' ? 'font-bold underline' : ''}`}>Contact</li>
                         </Link>
 
                         {isLoggedIn && (

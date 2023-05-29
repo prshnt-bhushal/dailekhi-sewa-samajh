@@ -6,6 +6,7 @@ import missionImg from "../public/Images/missionHighlight.png";
 import visionImg from "../public/Images/visionHighlight.png";
 import normsImg from "../public/Images/normsHighlight.png";
 import goalsImg from "../public/Images/goalsHighlight.png";
+import { onGoalHighlight, onMissionHighlight, onNormsHighlight, onVisionHighlight } from "@/components/Paragraph";
 
 
 export default function Home() {
@@ -48,51 +49,28 @@ export default function Home() {
               <HighlightsItems
                 highlightImage={missionImg}
                 highlightName={"Mission"}
-                highlighDescript={
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Tempora quis eum qui fugiat nobis error id ad, impedit
-                    autem? Eius.
-                  </p>
-                }
+                highlighDescript={onMissionHighlight}
               />
             </div>
             <div>
               <HighlightsItems
                 highlightImage={visionImg}
                 highlightName={"vision"}
-                highlighDescript={
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Accusantium distinctio aperiam quia aut dignissimos eum rem
-                    corporis est maxime? Architecto similique aut nemo aliquam
-                    recusandae.
-                  </p>
-                }
+                highlighDescript={onVisionHighlight}
               />
             </div>
             <div>
               <HighlightsItems
                 highlightImage={normsImg}
                 highlightName={"Norms and values"}
-                highlighDescript={
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Amet, quisquam.
-                  </p>
-                }
+                highlighDescript={onNormsHighlight}
               />
             </div>
             <div>
               <HighlightsItems
                 highlightImage={goalsImg}
                 highlightName={"goals"}
-                highlighDescript={
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Veritatis, nobis aspernatur. Necessitatibus minus ad odio?
-                  </p>
-                }
+                highlighDescript={onGoalHighlight}
               />
             </div>
           </div>

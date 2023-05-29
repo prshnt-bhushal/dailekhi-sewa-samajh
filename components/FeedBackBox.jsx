@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 
-const ContactForm = () => {
+const FeedBackBox = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    number: '',
     message: ''
   });
 
   const [errors, setErrors] = useState({});
 
+  // Validates the form fields and sets errors state accordingly.
   const validateForm = () => {
     const { name, email, message } = formData;
     const newErrors = {};
@@ -32,59 +34,115 @@ const ContactForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  // Handles submission of the form.
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      // Form submission logic
+    const isValid = validateForm();
+
+    if (isValid) {
       console.log(formData);
+      setFormData({
+        name: '',
+        email: '',
+        number: '',
+        message: ''
+      });
+      alert("Message Has been Sent!");
+      console.log('Form Data Cleared!');
+    } else {
+      shakeInputs();
     }
   };
 
+  // Handles change in input fields and updates the form data state.
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  // Input class to reduce redundancy.
+  const inputClass =
+    'w-96 p-2 m-2 rounded-lg cursor-pointer bg-slate-100 hover:bg-white';
+
+  // Shakes the input fields with invalid values.
+  const shakeInputs = () => {
+    const inputs = document.querySelectorAll(
+      'input[type="text"], input[type="email"], textarea'
+    );
+    inputs.forEach((input) => {
+      if (input.value.trim() === '') {
+        input.classList.add('border-red-500', 'animate-shake');
+        setTimeout(() => {
+          input.classList.remove('animate-shake');
+        }, 500);
+      }
+    });
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-      <div className="mb-4">
-        <label className="block mb-2">Name</label>
+    <form onSubmit={handleSubmit} className="flex flex-col items-center">
+      <h2 className='pb-2 uppercase w-max'>Your Feedback</h2>
+      {/* Name input field */}
+      <div>
         <input
           type="text"
           name="name"
+          placeholder="Name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full p-2 border rounded"
+          className={`${inputClass}`}
         />
-        {errors.name && <span className="text-red-500">{errors.name}</span>}
       </div>
-      <div className="mb-4">
-        <label className="block mb-2">Email</label>
+
+      {/* Email input field */}
+      <div>
         <input
           type="email"
           name="email"
+          placeholder="Email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full p-2 border rounded"
+          className={`${inputClass}`}
         />
-        {errors.email && <span className="text-red-500">{errors.email}</span>}
       </div>
-      <div className="mb-4">
-        <label className="block mb-2">Message</label>
+
+      {/* Number input field */}
+      <div>
+        <input
+          type="number"
+          name="number"
+          placeholder="Number"
+          maxLength={10}
+          size={10}
+          value={formData.number}
+          onChange={handleChange}
+          className={`${inputClass} `}
+        />
+      </div>
+
+      {/* Message input field */}
+      <div>
         <textarea
           name="message"
+          placeholder="Message"
           value={formData.message}
           onChange={handleChange}
-          className="w-full p-2 border rounded"
-        />
-        {errors.message && <span className="text-red-500">{errors.message}</span>}
+          rows="4" cols="50"
+          className={`resize-none  ${inputClass}`}
+        ></textarea>
       </div>
-      <div className='text-center basis-[30%]'>
-      <button type="submit" className="bg-[#607e91] text-white py-2 px-4 rounded">
+
+      {/* Submit button */}
+      <button
+        type="submit"
+        className="m-2 p-2 uppercase rounded-md bg-slate-400 text-white w-48"
+      >
         Submit
       </button>
-      </div>
     </form>
   );
 };
 
-export default ContactForm;
+export default FeedBackBox;

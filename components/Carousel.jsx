@@ -21,8 +21,8 @@ const Carousel = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
     };
   return (
-    <div className="relative border-2 border-solid border-gray-100  pt-[80px] ">
-      <div className="flex items-center justify-center">
+    <div className="relative w-full h-full ">
+      <div className="flex w-[500px] h-[500px] items-center justify-center">
         <button
           className="absolute text-white border-2 border-solid border-white left-0 top-1/2 transform -translate-y-1/2 focus:outline-none"
           onClick={prevSlide}
@@ -30,9 +30,10 @@ const Carousel = () => {
           <BsFillArrowLeftSquareFill />
         </button>
         <Image 
-          className="w-screen h-[500px] z-1"
           src={images[currentIndex]}
           alt={`Image ${currentIndex + 1}`}
+          width={1200}
+          height={1200}
         />
         <button
           className=" text-white absolute border-2 border-solid border-white right-0 top-1/2 transform -translate-y-1/2 focus:outline-none"

@@ -11,7 +11,7 @@ const MapComponent = () => {
     document.body.appendChild(script);
   }, []);
   return (
-    <div className='border border-gray-900'>
+    <div >
         <iframe src={url} width="100%" height="350" style={{border: "0"}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     )

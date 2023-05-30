@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { shakeInputs } from './Paragraph';
 
 const FeedBackBox = () => {
   const [formData, setFormData] = useState({
@@ -66,20 +67,7 @@ const FeedBackBox = () => {
   const inputClass =
     'w-96 p-2 m-2 rounded-lg cursor-pointer bg-slate-100 hover:bg-white';
 
-  // Shakes the input fields with invalid values.
-  const shakeInputs = () => {
-    const inputs = document.querySelectorAll(
-      'input[type="text"], input[type="email"], textarea'
-    );
-    inputs.forEach((input) => {
-      if (input.value.trim() === '') {
-        input.classList.add('border-red-500', 'animate-shake');
-        setTimeout(() => {
-          input.classList.remove('animate-shake');
-        }, 500);
-      }
-    });
-  };
+
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col items-center">
@@ -113,7 +101,7 @@ const FeedBackBox = () => {
         <input
           type="number"
           name="number"
-          placeholder="Number"
+          placeholder="Phone Number"
           maxLength={10}
           size={10}
           value={formData.number}

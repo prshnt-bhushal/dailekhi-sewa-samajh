@@ -11,3 +11,25 @@ export const onGoalHighlight =
 
 export const onNormsHighlight =
   "As a leading development and service provider, Dailekhi Sewa Samaj is committed to staying up-to-date with the latest technologies and methodologies. Our team of experts works tirelessly to provide innovative and reliable solutions that empower businesses and individuals to achieve their goals. We prioritize customer satisfaction by exceeding their expectations with personalized service experiences, and we hold ourselves accountable for maintaining high standards of quality and integrity in everything we do. By adhering to our vision, goals, and norms, we strive to become a trusted partner and thought leader in the industry, driving growth, innovation, and success for our customers.";
+
+
+
+
+
+
+
+
+    // Shakes the input fields with invalid values.
+ export const shakeInputs = () => {
+    const inputs = document.querySelectorAll(
+      'input[type="text"], input[type="email"], input[type="password"], textarea'
+    );
+    inputs.forEach((input) => {
+      if (input.value.trim() === '') {
+        input.classList.add('animate-shake');
+        setTimeout(() => {
+          input.classList.remove('animate-shake');
+        }, 500);
+      }
+    });
+  };

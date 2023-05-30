@@ -41,7 +41,7 @@ export default function Home() {
       {/* HighLights */}
       <div className="p-10 justify-center bg-[#b4b7bc] items-center flex-col h-full">
         <div className="text-justify p-3 m-2">
-          <h2 className="uppercase text-3xl p-1 mb-2 bg-slate-300">
+          <h2 className="uppercase text-3xl p-1 mb-2">
             HighLights
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 place-content-stretch ">

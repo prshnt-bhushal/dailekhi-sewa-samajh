@@ -6,6 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import dailekhMap from "../public/Images/dailekhMap.png";
 import LoadingSpinner from "@/components/LoadingSpinner";
+import { shakeInputs } from "@/components/Paragraph";
 
 const login = () => {
   const router = useRouter();
@@ -14,7 +15,7 @@ const login = () => {
     password: "",
   });
 
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setInputs((prev) => ({
@@ -35,14 +36,17 @@ const login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(()=>{
-      // console.log({ inputs });
-      //send http request
-      sendRequest().then(() => router.push("/profile"));
-      setLoading(false);
-    },2000)
-    
+    if (!inputs.email.trim() || !inputs.password.trim()) {
+      shakeInputs();
+    } else {
+      setLoading(true);
+      setTimeout(() => {
+        // console.log({ inputs });
+        //send http request
+        sendRequest().then(() => router.push("/profile"));
+        setLoading(false);
+      }, 2000);
+    }
   };
 
   return (
@@ -70,7 +74,6 @@ const login = () => {
               type="email"
               name="email"
               value={inputs.email}
-              required
               className="m-2 p-2 rounded-lg w-64 cursor-pointer bg-slate-100 hover:bg-white"
               onChange={handleChange}
               placeholder="Email"
@@ -79,7 +82,6 @@ const login = () => {
               type="password"
               name="password"
               value={inputs.password}
-              required
               className="m-2 p-2 rounded-lg w-64 cursor-pointer bg-slate-100 hover:bg-white"
               onChange={handleChange}
               placeholder="Password"

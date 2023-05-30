@@ -108,7 +108,8 @@ export default function Home() {
         </div>
       </div>
       {/* Major Areas of Interventions */}
-      <div></div>
+      <div>
+      </div>
     </div>
   );
 }

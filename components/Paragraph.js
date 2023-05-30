@@ -1,5 +1,6 @@
 import * as React from "react";
 
+
 export const onGalleryTxt =
   "Daiekhi Sewa Samaj is a non-profit organization that is dedicated to improving the lives of people by providing essential services";
 
